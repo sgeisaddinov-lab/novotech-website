@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novotech Chablais — Réparation Laptops & Smartphones à Monthey</title>
+  <meta name="description" content="Réparation d'écrans, diagnostics et batteries pour laptops et smartphones à Monthey, Valais. Prix honnêtes, service rapide. Appelez avant de payer trop cher.">
+  <meta name="keywords" content="réparation laptop Monthey, réparation écran ordinateur Valais, réparation smartphone Monthey, diagnostic laptop, Novotech Chablais">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #ffffff;
+      --grey-light: #f4f4f4;
+      --grey-mid: #e0e0e0;
+      --grey-text: #666666;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--grey-mid);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-logo span {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.15s;
+    }
+
+    .nav-cta:hover { opacity: 0.8; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px 24px 64px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--grey-text);
+      max-width: 540px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.15s;
+    }
+
+    .btn-primary:hover { opacity: 0.8; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--black);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1.5px solid var(--black);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero-badge {
+      margin-top: 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: var(--grey-light);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--grey-text);
+    }
+
+    .hero-badge strong { color: var(--black); }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--grey-mid);
+      margin: 0 24px;
+    }
+
+    /* SECTION */
+    section {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+      margin-bottom: 16px;
+    }
+
+    section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 48px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--grey-mid);
+      border: 1px solid var(--grey-mid);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 32px 28px;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--black);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: var(--white);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--grey-text);
+      line-height: 1.6;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .why-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .why-number {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--grey-text);
+    }
+
+    .why-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .why-item p {
+      font-size: 14px;
+      color: var(--grey-text);
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .contact-wrapper { grid-template-columns: 1fr; }
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--black);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 20px;
+      border: 1.5px solid var(--grey-mid);
+      border-radius: 8px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--black);
+      background: var(--grey-light);
+    }
+
+    .contact-link-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--black);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-link-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--white);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-link-text { display: flex; flex-direction: column; }
+    .contact-link-label { font-size: 11px; font-weight: 600; color: var(--grey-text); text-transform: uppercase; letter-spacing: 0.08em; }
+    .contact-link-value { font-size: 15px; font-weight: 600; }
+
+    .contact-map {
+      background: var(--grey-light);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--grey-mid);
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      display: block;
+    }
+
+    .contact-address {
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--grey-text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--grey-mid);
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo img { height: 24px; width: auto; }
+
+    .footer-logo span {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--grey-text);
+    }
+
+    /* FULL WIDTH WRAPPER */
+    .full-width {
+      background: var(--grey-light);
+      border-top: 1px solid var(--grey-mid);
+      border-bottom: 1px solid var(--grey-mid);
+    }
+
+    /* CALLOUT */
+    .callout {
+      padding: 64px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .callout h2 {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+
+    .callout p {
+      font-size: 16px;
+      color: var(--grey-text);
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 500px) {
+      nav { padding: 0 16px; }
+      .nav-logo span { display: none; }
+      section { padding: 60px 16px; }
+      .hero { padding: 88px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="assets/logo.png" alt="Novotech Chablais">
+      <span>Novotech Chablais</span>
+    </a>
+    <a href="tel:+41795780025" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 16 17l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Appeler
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <div style="max-width:900px; margin:0 auto;">
+    <div class="hero">
+      <span class="hero-eyebrow">Monthey · Valais · Chablais</span>
+      <h1>Un écran cassé ne vaut pas un demi-salaire.</h1>
+      <p class="hero-sub">Nous facturons uniquement ce qui est nécessaire. Réparation d'écrans et diagnostics pour laptops et smartphones — honnêtement, rapidement.</p>
+      <div class="hero-actions">
+        <a href="tel:+41795780025" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 16 17l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +41 79 578 00 25
+        </a>
+        <a href="https://wa.me/41795780025" target="_blank" rel="noopener" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Les autres facturent <strong>500–600 CHF</strong>. Nous, <strong>à partir de 300 CHF</strong>.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">Nos services</div>
+    <h2>Ce qu'on répare.</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Laptops — Écrans</h3>
+        <p>Remplacement d'écrans cassés ou défectueux. Pièces de qualité, montage soigné. À partir de 300 CHF.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+        <h3>Diagnostic rapide</h3>
+        <p>Votre laptop a un problème mais vous ne savez pas quoi ? On analyse et on vous dit exactement ce qu'il faut — sans frais inutiles.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h3>Smartphones — Écrans</h3>
+        <p>Écrans fissurés ou HS pour tous modèles courants. Remplacement propre et rapide.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/></svg>
+        </div>
+        <h3>Batteries</h3>
+        <p>Plus de charge, batterie qui gonfle ou qui tient 30 minutes ? On remplace vite et bien.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY -->
+  <section id="pourquoi">
+    <div class="section-label">Pourquoi nous</div>
+    <h2>Réparer un écran ne devrait pas coûter 600 francs.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-number">01</span>
+        <h3>Prix honnêtes</h3>
+        <p>On ne gonfle pas les devis. On facture ce qui est nécessaire, rien de plus. Les grandes enseignes ont des frais fixes — nous non.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-number">02</span>
+        <h3>Local & disponible</h3>
+        <p>On est à Monthey. Pas de délais de livraison, pas de centre de réparation à l'autre bout du canton. Venez directement.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-number">03</span>
+        <h3>Transparent</h3>
+        <p>Diagnostic clair avant toute intervention. Si on ne peut pas réparer, on vous le dit honnêtement — sans frais.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALLOUT -->
+  <div class="full-width">
+    <div class="callout">
+      <h2>Un doute ? Appelez avant de payer trop cher.</h2>
+      <p>On vous dit en deux minutes si ça vaut la peine et combien ça coûte.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a href="tel:+41795780025" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 16 17l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +41 79 578 00 25
+        </a>
+        <a href="mailto:novotech.chablais@gmail.com" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact & Adresse</div>
+    <h2>On est à Monthey.</h2>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <a href="tel:+41795780025" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 16 17l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-link-text">
+            <span class="contact-link-label">Téléphone</span>
+            <span class="contact-link-value">+41 79 578 00 25</span>
+          </div>
+        </a>
+        <a href="https://wa.me/41795780025" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </div>
+          <div class="contact-link-text">
+            <span class="contact-link-label">WhatsApp</span>
+            <span class="contact-link-value">+41 79 578 00 25</span>
+          </div>
+        </a>
+        <a href="mailto:novotech.chablais@gmail.com" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-link-text">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">novotech.chablais@gmail.com</span>
+          </div>
+        </a>
+      </div>
+      <div class="contact-map">
+        <iframe
+          title="Novotech Chablais — Avenue de Simplon 100b, Monthey"
+          src="https://maps.google.com/maps?q=Avenue+de+Simplon+100b,+1870+Monthey,+Valais,+Switzerland&output=embed"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="contact-address">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Avenue de Simplon 100b, 1870 Monthey, Valais
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div style="border-top:1px solid var(--grey-mid);">
+    <footer>
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="Novotech Chablais">
+        <span>Novotech Chablais</span>
+      </div>
+      <p>© 2026 Novotech Chablais · Monthey, Valais</p>
+    </footer>
+  </div>
+
+</body>
+</html>
