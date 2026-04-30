@@ -431,6 +431,49 @@
       margin-bottom: 32px;
     }
 
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--grey-mid); border-radius: 12px; overflow: hidden; }
+
+    .faq-item { border-bottom: 1px solid var(--grey-mid); }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-question {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      background: var(--white);
+      transition: background 0.15s;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-question::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--grey-text);
+      flex-shrink: 0;
+      margin-left: 16px;
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+    .faq-item[open] .faq-question { background: var(--grey-light); }
+
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--grey-text);
+      line-height: 1.7;
+      background: var(--grey-light);
+    }
+
     @media (max-width: 500px) {
       nav { padding: 0 16px; }
       .nav-logo span { display: none; }
@@ -497,12 +540,19 @@
         <h3>Diagnostic rapide</h3>
         <p>Votre laptop a un problème mais vous ne savez pas quoi ? On analyse et on vous dit exactement ce qu'il faut — sans frais inutiles.</p>
       </div>
-<div class="service-card">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/></svg>
         </div>
         <h3>Batteries</h3>
         <p>Plus de charge, batterie qui gonfle ou qui tient 30 minutes ? On remplace vite et bien.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>Smartphones — Écrans</h3>
+        <p>Écran fissuré ou tactile mort ? Remplacement pour les principales marques. Diagnostic inclus.</p>
       </div>
     </div>
   </section>
@@ -529,6 +579,54 @@
         <h3>Transparent</h3>
         <p>Diagnostic clair avant toute intervention. Si on ne peut pas réparer, on vous le dit honnêtement — sans frais.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="full-width">
+    <div style="max-width:900px;margin:0 auto;padding:48px 24px;display:flex;flex-wrap:wrap;gap:0;justify-content:space-between;">
+      <div style="flex:1;min-width:160px;text-align:center;padding:16px;">
+        <div style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;">300+</div>
+        <div style="font-size:13px;color:#666;margin-top:4px;">Réparations effectuées</div>
+      </div>
+      <div style="flex:1;min-width:160px;text-align:center;padding:16px;">
+        <div style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;">24h</div>
+        <div style="font-size:13px;color:#666;margin-top:4px;">Délai moyen</div>
+      </div>
+      <div style="flex:1;min-width:160px;text-align:center;padding:16px;">
+        <div style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;">0 CHF</div>
+        <div style="font-size:13px;color:#666;margin-top:4px;">Si on ne peut pas réparer</div>
+      </div>
+      <div style="flex:1;min-width:160px;text-align:center;padding:16px;">
+        <div style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;">Monthey</div>
+        <div style="font-size:13px;color:#666;margin-top:4px;">Disponible localement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label">Questions fréquentes</div>
+    <h2>Ce qu'on nous demande souvent.</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Combien de temps dure une réparation ?</summary>
+        <p class="faq-answer">La plupart des réparations d'écran sont faites dans la journée, souvent en 1–2 heures. On vous donne une estimation exacte au moment du dépôt.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Est-ce qu'il faut prendre rendez-vous ?</summary>
+        <p class="faq-answer">Non, vous pouvez passer directement à l'adresse. Pour être sûr qu'on est disponible, un appel ou un message WhatsApp avant de venir est toujours utile.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Y a-t-il une garantie sur les réparations ?</summary>
+        <p class="faq-answer">Oui. Toutes nos réparations sont garanties — pièces et main d'œuvre. Si un problème survient après notre intervention, on le règle sans frais supplémentaires.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Que se passe-t-il si vous ne pouvez pas réparer ?</summary>
+        <p class="faq-answer">Le diagnostic est gratuit. Si la réparation n'est pas possible ou ne vaut pas le coût, on vous le dit honnêtement — et vous ne payez rien.</p>
+      </details>
     </div>
   </section>
 
