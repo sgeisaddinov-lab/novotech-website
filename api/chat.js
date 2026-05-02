@@ -1,6 +1,8 @@
 const Anthropic = require('@anthropic-ai/sdk');
+const { Resend } = require('resend');
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const SYSTEM_PROMPT = `Tu es l'assistant de Novotech Chablais, un atelier de réparation de laptops à Monthey, en Valais (Suisse).
 
@@ -54,6 +56,20 @@ module.exports = async function handler(req, res) {
 
   const reply = response.content[0].text;
   console.log('CHAT', JSON.stringify({ ts: new Date().toISOString(), messages: messages.slice(-2), reply }));
+
+  const lastUserMsg = messages[messages.length - 1]?.content || '';
+  const hasPhone = /(\+41|0041|07[5-9])\s?\d[\d\s]{6,}/.test(lastUserMsg);
+  if (hasPhone) {
+    const transcript = messages.slice(-10)
+      .map(m => `${m.role === 'user' ? 'Client' : 'Assistant'}: ${m.content}`)
+      .join('\n') + `\nAssistant: ${reply}`;
+    resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'novotech.chablais@gmail.com',
+      subject: 'Nouveau lead — Novotech Chat',
+      text: transcript
+    }).catch(err => console.error('Email error:', err));
+  }
 
   return res.status(200).json({ response: reply });
 };
