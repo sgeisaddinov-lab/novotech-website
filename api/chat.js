@@ -57,7 +57,9 @@ module.exports = async function handler(req, res) {
 
   const lastUserMsg = messages[messages.length - 1]?.content || '';
   const hasPhone = (lastUserMsg.match(/\d/g) || []).length >= 8;
-  if (hasPhone) {
+  const hasEmail = /\S+@\S+\.\S+/.test(lastUserMsg);
+  const isLead = hasPhone || hasEmail;
+  if (isLead) {
     const transcript = messages.slice(-10)
       .map(m => `${m.role === 'user' ? 'Client' : 'Assistant'}: ${m.content}`)
       .join('\n') + `\nAssistant: ${reply}`;
