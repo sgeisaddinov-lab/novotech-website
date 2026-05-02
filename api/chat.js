@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
   console.log('CHAT', JSON.stringify({ ts: new Date().toISOString(), messages: messages.slice(-2), reply }));
 
   const lastUserMsg = messages[messages.length - 1]?.content || '';
-  const hasPhone = /(\+41|0041|07[5-9])\s?\d[\d\s]{6,}/.test(lastUserMsg);
+  const hasPhone = (lastUserMsg.match(/\d/g) || []).length >= 8;
   if (hasPhone) {
     const transcript = messages.slice(-10)
       .map(m => `${m.role === 'user' ? 'Client' : 'Assistant'}: ${m.content}`)
