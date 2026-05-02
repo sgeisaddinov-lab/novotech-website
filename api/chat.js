@@ -65,7 +65,7 @@ module.exports = async function handler(req, res) {
       .join('\n') + `\nAssistant: ${reply}`;
     resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'novotech.chablais@gmail.com',
+      to: 'sgeisaddinov@gmail.com',
       subject: 'Nouveau lead — Novotech Chat',
       text: transcript
     }).catch(err => console.error('Email error:', err));
