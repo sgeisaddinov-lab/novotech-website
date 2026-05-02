@@ -888,12 +888,17 @@
   function needsStockCheck(text) {
     const t = text.toLowerCase();
     const keywords = [
+      'macbook', 'mac book', 'thinkpad', 'inspiron', 'pavilion', 'vivobook',
+      'zenbook', 'matebook', 'latitude', 'xps', 'spectre', 'elitebook',
+      'ideapad', 'yoga', 'dell', 'lenovo', 'asus', 'acer', 'toshiba', 'msi',
+      'surface', 'samsung', 'huawei', 'fujitsu',
       'écran', 'screen', 'batterie', 'battery', 'clavier', 'keyboard',
       'chargeur', 'charger', 'fissuré', 'cracked',
       'remplacement', 'remplacer', 'réparation', 'réparer',
       'prix', 'combien', 'coûte', 'tarif', 'devis'
     ];
-    return keywords.some(k => t.includes(k));
+    const modelNumber = /\b[a-z]\d{3,4}\b|\b\d{3,4}[a-z]\b|\bhp\b/i;
+    return keywords.some(k => t.includes(k)) || modelNumber.test(t);
   }
 
   async function sendMsg() {
@@ -911,11 +916,14 @@
     showTyping();
 
     try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history })
-      });
+      const [res] = await Promise.all([
+        fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history })
+        }),
+        new Promise(r => setTimeout(r, 1500))
+      ]);
       const data = await res.json();
       removeTyping();
       addMsg('ai', data.response);
