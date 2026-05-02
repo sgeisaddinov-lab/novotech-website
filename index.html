@@ -885,6 +885,19 @@
     if (t) t.remove();
   }
 
+  function needsStockCheck(text) {
+    const t = text.toLowerCase();
+    const keywords = [
+      'macbook', 'mac book', ' hp ', 'dell', 'lenovo', 'asus', 'acer', 'toshiba', 'msi',
+      'razer', 'surface', 'xiaomi', 'huawei', 'fujitsu', 'vaio', 'laptop',
+      'ordinateur', 'pc portable', 'notebook',
+      'écran', 'screen', 'batterie', 'battery', 'réparer', 'réparation',
+      'remplacement', 'remplacer', 'prix', 'combien', 'coûte', 'tarif', 'devis',
+      'cassé', 'fissuré', 'broken', 'cracked', 'panne', 'clavier', 'chargeur'
+    ];
+    return keywords.some(k => t.includes(k));
+  }
+
   async function sendMsg() {
     const text = input.value.trim();
     if (!text) return;
@@ -893,8 +906,10 @@
     history.push({ role: 'user', content: text });
     send.disabled = true;
 
-    addMsg('ai', 'Un instant, je vérifie notre stock...');
-    await new Promise(r => setTimeout(r, 9000));
+    if (needsStockCheck(text)) {
+      addMsg('ai', 'Un instant, je vérifie notre stock...');
+      await new Promise(r => setTimeout(r, 9000));
+    }
     showTyping();
 
     try {
