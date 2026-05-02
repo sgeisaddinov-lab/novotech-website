@@ -888,12 +888,10 @@
   function needsStockCheck(text) {
     const t = text.toLowerCase();
     const keywords = [
-      'macbook', 'mac book', ' hp ', 'dell', 'lenovo', 'asus', 'acer', 'toshiba', 'msi',
-      'razer', 'surface', 'xiaomi', 'huawei', 'fujitsu', 'vaio', 'laptop',
-      'ordinateur', 'pc portable', 'notebook',
-      'écran', 'screen', 'batterie', 'battery', 'réparer', 'réparation',
-      'remplacement', 'remplacer', 'prix', 'combien', 'coûte', 'tarif', 'devis',
-      'cassé', 'fissuré', 'broken', 'cracked', 'panne', 'clavier', 'chargeur'
+      'écran', 'screen', 'batterie', 'battery', 'clavier', 'keyboard',
+      'chargeur', 'charger', 'fissuré', 'cracked',
+      'remplacement', 'remplacer', 'réparation', 'réparer',
+      'prix', 'combien', 'coûte', 'tarif', 'devis'
     ];
     return keywords.some(k => t.includes(k));
   }
