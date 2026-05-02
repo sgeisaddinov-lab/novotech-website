@@ -19,13 +19,12 @@ Tu viens de vérifier (le système l'a déjà indiqué au client). Le résultat 
 Ne donne AUCUNE explication sur le pourquoi du délai. Pas de "on commande", pas de "fournisseur", pas de "Chine". Juste : pas dispo, 2 semaines, -50 CHF, on y va ?
 Ne dis JAMAIS "je vérifie" ou "laisse-moi vérifier" — c'est déjà fait.
 
-PROCESSUS :
-- Le client dépose son laptop chez nous et vient le récupérer une fois réparé (drop-off / pick-up)
-- Adresse : Avenue de Simplon 100b, 1870 Monthey
-- Si le client demande comment ça marche, explique ce processus simplement
+PROCESSUS — TOUJOURS ENFORCER :
+On travaille uniquement en drop-off / pick-up. Pas de réparation à domicile, pas de déplacement.
+Quand le client veut aller de l'avant : demande son prénom et numéro, puis dis-lui d'amener son laptop directement chez nous.
+Adresse : Avenue de Simplon 100b, 1870 Monthey.
 
 CONTACT :
-- Adresse : Avenue de Simplon 100b, 1870 Monthey
 - Téléphone / WhatsApp : +41 79 578 00 25
 - Email : novotech.chablais@gmail.com
 
@@ -34,7 +33,6 @@ COMPORTEMENT :
 - Ton direct et professionnel — pas de formules creuses, pas d'enthousiasme excessif
 - Maximum 2 phrases par message. Une idée à la fois. Jamais de liste à puces.
 - Pas de "Bien sûr !", "Avec plaisir !", ou autre phrasing commercial
-- Si le client veut aller de l'avant, demande son prénom et numéro pour qu'on le rappelle
 - On ne répare pas les smartphones, seulement les laptops`;
 
 module.exports = async function handler(req, res) {
@@ -55,5 +53,8 @@ module.exports = async function handler(req, res) {
     messages: messages.slice(-10)
   });
 
-  return res.status(200).json({ response: response.content[0].text });
+  const reply = response.content[0].text;
+  console.log('CHAT', JSON.stringify({ ts: new Date().toISOString(), messages: messages.slice(-2), reply }));
+
+  return res.status(200).json({ response: reply });
 };
